@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semangat Belajar TKA NYAA DAVINAAA</title>
+    <!-- Google Fonts for cute typography -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@500;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --primary: #ff6b8b;
+            --primary-hover: #ff4770;
+            --bg-gradient: linear-gradient(135deg, #ffe6ea 0%, #fed1d6 50%, #fec3ca 100%);
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --text-color: #5c3d46;
+            --shadow: 0 10px 25px rgba(255, 107, 139, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 15px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts Background Container */
+        #hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -20px;
+            font-size: 20px;
+            animation: floatUp linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8) rotate(0deg);
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-105vh) scale(1.3) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 750px;
+            width: 100%;
+            z-index: 1;
+            text-align: center;
+        }
+
+        header {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 25px 20px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            animation: fadeInDown 0.8s ease;
+        }
+
+        header h1 {
+            font-family: 'Fredoka', cursive;
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ffe0e6;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        /* Cards Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 20px 24px;
+            text-decoration: none;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            box-shadow: var(--shadow);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(255, 107, 139, 0.25);
+            background: #ffffff;
+        }
+
+        .card-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-align: left;
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            background: #ffe0e6;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.15rem;
+            color: #4a2e35;
+        }
+
+        .arrow {
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .arrow {
+            transform: translateX(5px);
+        }
+
+        footer {
+            margin-top: 35px;
+            font-weight: 700;
+            color: #8c5665;
+            font-size: 0.95rem;
+            z-index: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .card-title {
+                font-size: 1.05rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="hearts-container"></div>
+
+    <div class="container">
+        <header>
+            <h1>Semangat Belajar TKA NYA DAVINAA✨</h1>
+            <p>Belajarr yang Giat yaa..., Kalo mauu baca" materi tinggal Klik dibawah ini..
+            </p>
+            <div class="badge">🌸 Target Lolos TKA 100000%</div>
+        </header>
+
+        <main class="grid">
+
+            <!-- 1. MATEMATIKA -->
+            <!-- Ganti href dengan link kamu -->
+            <a href="https://www.zenius.net/cg/1714/tka-sma-matematika" class="card" target="_blank">
+                <div class="card-info">
+                    <div class="card-icon">📐</div>
+                    <div class="card-title">Matematika</div>
+                </div>
+                <span class="arrow">➔</span>
+            </a>
+
+            <!-- 2. MATEMATIKA TINGKAT LANJUT -->
+            <a href="https://www.zenius.net/cg/2000/tka-sma-matematika-tingkat-lanjut" class="card" target="_blank">
+                <div class="card-info">
+                    <div class="card-icon">🧮</div>
+                    <div class="card-title">Matematika Tingkat Lanjut</div>
+                </div>
+                <span class="arrow">➔</span>
+            </a>
+
+            <!-- 3. BAHASA INDONESIA -->
+            <a href="https://www.zenius.net/cg/1715/tka-sma-bahasa-indonesia" class="card" target="_blank">
+                <div class="card-info">
+                    <div class="card-icon">📚</div>
+                    <div class="card-title">Bahasa Indonesia</div>
+                </div>
+                <span class="arrow">➔</span>
+            </a>
+
+            <!-- 5. GEOGRAFI -->
+            <a href="https://www.zenius.net/cg/1863/tka-sma-geografi" class="card" target="_blank">
+                <div class="card-info">
+                    <div class="card-icon">🌍</div>
+                    <div class="card-title">Geografi</div>
+                </div>
+                <span class="arrow">➔</span>
+            </a>
+
+            <!-- 6. SOSIOLOGI -->
+            <a href="https://www.zenius.net/cg/1887/tka-sma-sosiologi" class="card" target="_blank">
+                <div class="card-info">
+                    <div class="card-icon">👥</div>
+                    <div class="card-title">Sosiologi</div>
+                </div>
+                <span class="arrow">➔</span>
+            </a>
+
+            <!-- 7. EKONOMI -->
+            <a href="https://www.zenius.net/cg/1834/tka-sma-ekonomi" class="card" target="_blank">
+                <div class="card-info">
+                    <div class="card-icon">📈</div>
+                    <div class="card-title">Ekonomi</div>
+                </div>
+                <span class="arrow">➔</span>
+            </a>
+
+            <a href="https://www.zenius.net/cg/2780/pembahasan-soal-kisi-kisi-tka" class="card" target="_blank">
+                <div class="card-info">
+                    <div class="card-icon">✍️</div>
+                    <div class="card-title">TRY OUT</div>
+                </div>
+                <span class="arrow">➔</span>
+            </a>
+
+        </main>
+
+        <footer>
+            GASKENN YOKK BANTAII" TKA!!
+        </footer>
+    </div>
+
+    <script>
+        // Generator Partikel Love Melayang
+        const container = document.getElementById('hearts-container');
+        const heartSymbols = ['💖', '💗', '💕', '🌸', '✨', '💓'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+            heart.style.fontSize = Math.random() * 12 + 16 + 'px';
+
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 400);
+
+        // Efek Click Particle Love
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                for (let i = 0; i < 6; i++) {
+                    const pop = document.createElement('span');
+                    pop.innerText = '💖';
+                    pop.style.position = 'fixed';
+                    pop.style.left = e.clientX + (Math.random() * 40 - 20) + 'px';
+                    pop.style.top = e.clientY + (Math.random() * 40 - 20) + 'px';
+                    pop.style.pointerEvents = 'none';
+                    pop.style.fontSize = '20px';
+                    pop.style.transition = 'all 0.6s ease-out';
+                    document.body.appendChild(pop);
+
+                    setTimeout(() => {
+                        pop.style.transform = 'translateY(-30px) scale(1.5)';
+                        pop.style.opacity = '0';
+                    }, 10);
+
+                    setTimeout(() => pop.remove(), 650);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
