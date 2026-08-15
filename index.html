@@ -147,6 +147,12 @@
             background: #ffffff;
         }
 
+        /* Highlight khusus untuk tombol Kisi-Kisi */
+        .card.highlight-kisi {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 224, 230, 0.95) 100%);
+            border: 2px solid var(--primary);
+        }
+
         .card-info {
             display: flex;
             align-items: center;
@@ -226,16 +232,14 @@
 
     <div class="container">
         <header>
-            <h1>Semangat Belajar TKA NYA DAVINAA✨</h1>
-            <p>Belajarr yang Giat yaa..., Kalo mauu baca" materi tinggal Klik dibawah ini..
-            </p>
+            <h1>Semangat Belajar TKA NYAA DAVINAA✨</h1>
+            <p>Belajarr yang Giat yaa..., Kalo mauu baca" materi tinggal Klik dibawah ini..</p>
             <div class="badge">🌸 Target Lolos TKA 100000%</div>
         </header>
 
         <main class="grid">
 
             <!-- 1. MATEMATIKA -->
-            <!-- Ganti href dengan link kamu -->
             <a href="https://www.zenius.net/cg/1714/tka-sma-matematika" class="card" target="_blank">
                 <div class="card-info">
                     <div class="card-icon">📐</div>
@@ -262,7 +266,7 @@
                 <span class="arrow">➔</span>
             </a>
 
-            <!-- 5. GEOGRAFI -->
+            <!-- 4. GEOGRAFI -->
             <a href="https://www.zenius.net/cg/1863/tka-sma-geografi" class="card" target="_blank">
                 <div class="card-info">
                     <div class="card-icon">🌍</div>
@@ -271,7 +275,7 @@
                 <span class="arrow">➔</span>
             </a>
 
-            <!-- 6. SOSIOLOGI -->
+            <!-- 5. SOSIOLOGI -->
             <a href="https://www.zenius.net/cg/1887/tka-sma-sosiologi" class="card" target="_blank">
                 <div class="card-info">
                     <div class="card-icon">👥</div>
@@ -280,7 +284,7 @@
                 <span class="arrow">➔</span>
             </a>
 
-            <!-- 7. EKONOMI -->
+            <!-- 6. EKONOMI -->
             <a href="https://www.zenius.net/cg/1834/tka-sma-ekonomi" class="card" target="_blank">
                 <div class="card-info">
                     <div class="card-icon">📈</div>
@@ -289,10 +293,20 @@
                 <span class="arrow">➔</span>
             </a>
 
+            <!-- 7. TRY OUT -->
             <a href="https://www.zenius.net/cg/2780/pembahasan-soal-kisi-kisi-tka" class="card" target="_blank">
                 <div class="card-info">
                     <div class="card-icon">✍️</div>
                     <div class="card-title">TRY OUT</div>
+                </div>
+                <span class="arrow">➔</span>
+            </a>
+
+            <!-- 8. KISI-KISI TKA (BARU: Diarahkan ke kisi-kisi.html) -->
+            <a href="kisi-kisi.html" class="card highlight-kisi">
+                <div class="card-info">
+                    <div class="card-icon">📋</div>
+                    <div class="card-title">Melihat Kisi-Kisi TKA</div>
                 </div>
                 <span class="arrow">➔</span>
             </a>

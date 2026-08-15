@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kisi-Kisi TKA SMA 2026 - Davina ✨</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@500;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --primary: #ff6b8b;
+            --primary-hover: #ff4770;
+            --bg-gradient: linear-gradient(135deg, #ffe6ea 0%, #fed1d6 50%, #fec3ca 100%);
+            --card-bg: rgba(255, 255, 255, 0.92);
+            --text-color: #5c3d46;
+            --shadow: 0 8px 20px rgba(255, 107, 139, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 25px 15px 40px 15px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts Container */
+        #hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -20px;
+            font-size: 20px;
+            animation: floatUp linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8) rotate(0deg);
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-105vh) scale(1.3) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            z-index: 1;
+        }
+
+        /* Tombol Kembali */
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card-bg);
+            color: var(--primary);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 2px solid #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-5px);
+            background: #ffffff;
+        }
+
+        /* Header Utama */
+        header {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 25px 20px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Fredoka', cursive;
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Container Mata Pelajaran */
+        .subject-block {
+            margin-bottom: 28px;
+        }
+
+        .subject-title-main {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.3rem;
+            color: #4a2e35;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: 5px;
+        }
+
+        /* List Accordion (Model Card persis seperti referensi gambar) */
+        .accordion-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .accordion-item {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1.5px solid rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .accordion-item.active {
+            border-color: var(--primary);
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 16px 20px;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Quicksand', sans-serif;
+            transition: background 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .topic-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #3d232a;
+        }
+
+        .topic-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .badge-count {
+            font-size: 0.85rem;
+            color: #8c5665;
+            font-weight: 600;
+        }
+
+        .chevron {
+            font-size: 0.85rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .chevron {
+            transform: rotate(180deg);
+        }
+
+        /* Isi Konten Dropdown (Bisa Banyak Isi) */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+            /* Batas tinggi konten saat terbuka */
+            transition: max-height 0.4s ease-in-out;
+            border-top: 1px dashed rgba(255, 107, 139, 0.2);
+        }
+
+        .subtopic-list {
+            list-style: none;
+            padding: 15px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .subtopic-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #4a2e35;
+            line-height: 1.5;
+        }
+
+        .subtopic-item::before {
+            content: "❯";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 700;
+            color: #8c5665;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .topic-name {
+                font-size: 0.98rem;
+            }
+
+            .badge-count {
+                font-size: 0.78rem;
+            }
+
+            .subtopic-item {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="hearts-container"></div>
+
+    <div class="container">
+
+        <!-- Tombol Kembali -->
+        <a href="index.html" class="btn-back">
+            <span>⬅️</span> Kembali ke Utama
+        </a>
+
+        <!-- Header -->
+        <header>
+            <h1>Kisi-Kisi & Detail Topik TKA 2026 📋✨</h1>
+            <p>Klik judul bab yang ada di bawah ini yaa untuk membuka daftar sub-topik lengkapnyaaa!</p>
+        </header>
+
+        <!-- 1. MATEMATIKA -->
+        <div class="subject-block">
+            <h2 class="subject-title-main">📐 Matematika</h2>
+            <div class="accordion-group">
+
+                <div class="accordion-item active">
+                    <button class="accordion-header">
+                        <span class="topic-name">Aljabar & Fungsi</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">6 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Persamaan & pertidaksamaan linear, kuadrat, nilai mutlak</li>
+                            <li class="subtopic-item">Sistem persamaan linear dua & tiga variabel (SPLDV/SPLTV)</li>
+                            <li class="subtopic-item">Fungsi: domain, kodomain, range, komposisi, invers</li>
+                            <li class="subtopic-item">Barisan & deret aritmetika / geometri</li>
+                            <li class="subtopic-item">Eksponen & logaritma: sifat dan penerapannya</li>
+                            <li class="subtopic-item">Faktorisasi dan manipulasi bentuk aljabar</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Geometri & Pengukuran</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">6 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Bangun datar: segitiga, segi empat, lingkaran — luas & keliling
+                            </li>
+                            <li class="subtopic-item">Bangun ruang: kubus, balok, prisma, limas, tabung, kerucut, bola
+                            </li>
+                            <li class="subtopic-item">Teorema Pythagoras & kesebangunan</li>
+                            <li class="subtopic-item">Jarak dan sudut antar unsur geometri</li>
+                            <li class="subtopic-item">Transformasi geometri: translasi, rotasi, refleksi, dilatasi</li>
+                            <li class="subtopic-item">Trigonometri dasar: sin, cos, tan & aplikasinya</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Statistika & Peluang</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">5 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Penyajian data: tabel frekuensi, histogram, diagram
+                                batang/lingkaran</li>
+                            <li class="subtopic-item">Ukuran pemusatan: mean, median, modus</li>
+                            <li class="subtopic-item">Ukuran penyebaran: jangkauan, kuartil, simpangan baku</li>
+                            <li class="subtopic-item">Aturan pencacahan: kaidah dasar, permutasi, kombinasi</li>
+                            <li class="subtopic-item">Peluang kejadian tunggal & majemuk (saling lepas/bebas)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Bilangan & Logika</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">4 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Operasi bilangan bulat, pecahan, rasional & irasional</li>
+                            <li class="subtopic-item">Rasio, perbandingan, dan skala</li>
+                            <li class="subtopic-item">Aritmetika sosial: bunga, diskon, pajak, untung/rugi</li>
+                            <li class="subtopic-item">Pola bilangan dan deret tak hingga</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 2. BAHASA INDONESIA -->
+        <div class="subject-block">
+            <h2 class="subject-title-main">📚 Bahasa Indonesia</h2>
+            <div class="accordion-group">
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Pemahaman & Analisis Teks</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">5 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Ide pokok, gagasan utama, tema, dan judul teks</li>
+                            <li class="subtopic-item">Informasi tersurat dan tersirat (inferensi)</li>
+                            <li class="subtopic-item">Pernyataan benar atau salah berdasarkan teks</li>
+                            <li class="subtopic-item">Simpulan dan ringkasan teks</li>
+                            <li class="subtopic-item">Perbedaan fakta dan opini dalam teks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Kebahsaan</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">5 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Makna kata: denotasi, konotasi, sinonim, antonim</li>
+                            <li class="subtopic-item">Makna imbuhan (prefiks, sufiks, konfiks)</li>
+                            <li class="subtopic-item">Konjungsi dan kata penghubung antarkalimat</li>
+                            <li class="subtopic-item">Kalimat efektif, baku, dan logis</li>
+                            <li class="subtopic-item">Ejaan dan tanda baca sesuai KBBI & EYD</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Struktur Teks & Wacana</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">5 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Struktur teks: eksposisi, argumentasi, narasi, deskripsi</li>
+                            <li class="subtopic-item">Kepaduan paragraf dan koherensi antarkalimat</li>
+                            <li class="subtopic-item">Hubungan antarparagraf dan ilustrasi bacaan</li>
+                            <li class="subtopic-item">Tujuan penulisan dan sudut pandang penulis</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Sastra</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">5 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Unsur intrinsik puisi, cerpen, novel (tema, alur, tokoh, latar)
+                            </li>
+                            <li class="subtopic-item">Majas dan gaya bahasa</li>
+                            <li class="subtopic-item">Nilai moral dan amanat karya sastra</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. GEOGRAFI -->
+        <div class="subject-block">
+            <h2 class="subject-title-main">🌍 Geografi</h2>
+            <div class="accordion-group">
+
+                <!-- 1. Geografi Fisik -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Geografi Fisik</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">5 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Bumi: lapisan bumi, teori lempeng tektonik, gempa, vulkanisme</li>
+                            <li class="subtopic-item">Atmosfer: lapisan, cuaca & iklim, angin muson, ENSO</li>
+                            <li class="subtopic-item">Hidrologi: siklus air, DAS, pola aliran sungai, air tanah</li>
+                            <li class="subtopic-item">Pedologi: proses pembentukan tanah, jenis, dan degradasi lahan
+                            </li>
+                            <li class="subtopic-item">Biosfer: bioma darat & lautan, flora & fauna Indonesia</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. Geografi Manusia -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Geografi Manusia</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">4 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Demografi: pertumbuhan penduduk, piramida penduduk, mobilitas</li>
+                            <li class="subtopic-item">Pola permukiman: desa-kota, hierarki kota, zona waktu</li>
+                            <li class="subtopic-item">Sumber daya alam: jenis, persebaran, dan pengelolaan berkelanjutan
+                            </li>
+                            <li class="subtopic-item">Interaksi wilayah: teori gravitasi, model Christaller</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. Peta & Penginderaan Jauh -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Peta & Penginderaan Jauh</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">3 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Komponen peta, skala, dan proyeksi peta</li>
+                            <li class="subtopic-item">Interpretasi citra penginderaan jauh (foto udara & satelit)</li>
+                            <li class="subtopic-item">Sistem Informasi Geografis (SIG): komponen, manfaat, dan analisis
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4. Lingkungan & Pembangunan -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Lingkungan & Pembangunan</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">3 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Lingkungan hidup: pencemaran udara, air, tanah</li>
+                            <li class="subtopic-item">Pembangunan berkelanjutan (sustainable development)</li>
+                            <li class="subtopic-item">Mitigasi bencana: banjir, longsor, tsunami, kekeringan</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 4. SOSIOLOGI -->
+        <div class="subject-block">
+            <h2 class="subject-title-main">👥 Sosiologi</h2>
+            <div class="accordion-group">
+
+                <!-- 1. Individu & Masyarakat -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Individu & Masyarakat</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">5 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Sosialisasi: primer, sekunder, agen, dan tipe sosialisasi</li>
+                            <li class="subtopic-item">Nilai, norma, dan sanksi sosial</li>
+                            <li class="subtopic-item">Status dan peran sosial: ascribed, achieved, assigned</li>
+                            <li class="subtopic-item">Interaksi sosial: syarat, bentuk (asosiatif & disosiatif)</li>
+                            <li class="subtopic-item">Lembaga sosial: fungsi keluarga, pendidikan, agama, ekonomi,
+                                politik</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. Struktur & Stratifikasi Sosial -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Struktur & Stratifikasi Sosial</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">5 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Stratifikasi sosial: jenis, dasar, dan sifat (terbuka/tertutup)
+                            </li>
+                            <li class="subtopic-item">Diferensiasi sosial: ras, etnis, gender, agama, profesi</li>
+                            <li class="subtopic-item">Mobilitas sosial: horizontal, vertikal, antargenerasi</li>
+                            <li class="subtopic-item">Konflik sosial: teori, penyebab, dan penyelesaian</li>
+                            <li class="subtopic-item">Integrasi sosial: asimilasi, akulturasi, amalgamasi</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. Perubahan Sosial -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Perubahan Sosial</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">4 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Faktor penyebab dan penghambat perubahan sosial</li>
+                            <li class="subtopic-item">Modernisasi, globalisasi, dan westernisasi</li>
+                            <li class="subtopic-item">Dampak perubahan sosial: cultural lag, disorganisasi</li>
+                            <li class="subtopic-item">Revolusi sosial dan reformasi</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4. Penelitian Sosial -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Penelitian Sosial</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">4 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Metode penelitian: kuantitatif dan kualitatif</li>
+                            <li class="subtopic-item">Teknik pengumpulan data: observasi, angket, wawancara</li>
+                            <li class="subtopic-item">Validitas dan reliabilitas data</li>
+                            <li class="subtopic-item">Penulisan laporan penelitian sosial</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- 5. EKONOMI -->
+        <div class="subject-block">
+            <h2 class="subject-title-main">📈 Ekonomi</h2>
+            <div class="accordion-group">
+
+                <!-- 1. Ekonomi Mikro -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Ekonomi Mikro</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">5 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Konsep dasar ekonomi: kelangkaan, pilihan, biaya peluang</li>
+                            <li class="subtopic-item">Permintaan & penawaran: hukum, kurva, dan keseimbangan pasar</li>
+                            <li class="subtopic-item">Elastisitas harga, pendapatan, dan silang</li>
+                            <li class="subtopic-item">Perilaku konsumen: utilitas marjinal dan kurva indiferens</li>
+                            <li class="subtopic-item">Struktur pasar: persaingan sempurna, monopoli, oligopoli</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. Ekonomi Makro -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Ekonomi Makro</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">6 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Pendapatan nasional: PDB, PNB, NNP, NNI — metode penghitungan</li>
+                            <li class="subtopic-item">Inflasi: jenis, penyebab, dampak, dan penanganan</li>
+                            <li class="subtopic-item">Kebijakan fiskal: APBN, pajak, dan subsidi</li>
+                            <li class="subtopic-item">Kebijakan moneter: BI Rate, GWM, operasi pasar terbuka</li>
+                            <li class="subtopic-item">Ketenagakerjaan: pengangguran, UMP, dan pasar kerja</li>
+                            <li class="subtopic-item">Perdagangan internasional: ekspor-impor, neraca pembayaran</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. Perbankan & Keuangan -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Perbankan & Keuangan</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">4 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Fungsi dan jenis uang, teori nilai uang</li>
+                            <li class="subtopic-item">Sistem perbankan Indonesia: BI, bank umum, BPR</li>
+                            <li class="subtopic-item">Lembaga keuangan non-bank: asuransi, leasing, reksa dana</li>
+                            <li class="subtopic-item">Indeks harga (IHK) dan inflasi inti</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4. Akuntansi Dasar -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="topic-name">Akuntansi Dasar</span>
+                        <div class="topic-meta">
+                            <span class="badge-count">3 topik</span>
+                            <span class="chevron">▼</span>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="subtopic-list">
+                            <li class="subtopic-item">Persamaan akuntansi dasar (aset = liabilitas + ekuitas)</li>
+                            <li class="subtopic-item">Siklus akuntansi: jurnal, buku besar, neraca saldo</li>
+                            <li class="subtopic-item">Laporan keuangan: laba/rugi, neraca, arus kas</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            Semangat Bantai" TKA Nyaa!!
+        </footer>
+    </div>
+
+    <!-- Script Accordion Interactive & Love Particle -->
+    <script>
+        // Fitur Accordion Buka-Tutup saat Diklik
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+
+                // Jika ingin hanya 1 bab yang terbuka bersamaan, batasi di sini:
+                /*
+                document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                */
+
+                // Toggle status aktif item yang diklik
+                item.classList.toggle('active');
+            });
+        });
+
+        // Generator Partikel Love Melayang (Background Animation)
+        const container = document.getElementById('hearts-container');
+        const heartSymbols = ['💖', '💗', '💕', '🌸', '✨', '💓'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+            heart.style.fontSize = Math.random() * 12 + 16 + 'px';
+
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 450);
+    </script>
+</body>
+
+</html>
