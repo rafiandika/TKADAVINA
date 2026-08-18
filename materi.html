@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Belajar SNBT UTBK</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#EF4444',
+                            dark: '#0F172A',
+                            card: '#1E293B',
+                            border: '#334155'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-brand-dark text-slate-100 font-sans min-h-screen pb-16">
+
+    <!-- Header -->
+    <header class="border-b border-brand-border bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+
+            <!-- Logo / Title + Tombol Kembali Ke Beranda -->
+            <div class="flex items-center gap-4">
+                <a href="index.html"
+                    class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg border border-brand-border transition group"
+                    title="Kembali ke Halaman Utama">
+                    <svg class="w-4 h-4 text-slate-400 group-hover:text-white transition" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span>Beranda</span>
+                </a>
+
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-white">Hub Materi UTBK SNBT</h1>
+                    <p class="text-xs text-slate-400">Kumpulan sumber belajar berdasarkan subtes kisi-kisi resmi</p>
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <span
+                    class="px-3 py-1 bg-brand-red/10 border border-brand-red/30 text-brand-red text-xs rounded-full font-medium flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span> Mode Fokus
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 mt-8">
+
+        <!-- Section 1: Tes Potensi Skolastik (TPS) -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold text-slate-200 mb-4 pb-2 border-b border-brand-border flex items-center gap-2">
+                <span class="text-brand-red">#</span> Tes Potensi Skolastik (TPS)
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <!-- Card: Kemampuan Penalaran Umum -->
+                <div
+                    class="bg-brand-card border border-brand-border rounded-xl p-5 hover:border-brand-red/50 transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span
+                                class="text-xs font-semibold uppercase tracking-wider text-red-400 bg-red-400/10 px-2 py-0.5 rounded">TPS</span>
+                            <span class="text-xs text-slate-400">Induktif, Deduktif, Kuantitatif</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Penalaran Umum</h3>
+                        <p class="text-sm text-slate-400 mb-4">Latihan logika, kesimpulan premis, pola angka, dan
+                            silogisme.</p>
+                    </div>
+                    <div class="space-y-2 border-t border-brand-border/60 pt-3">
+                        <a href="https://www.zenius.net/blog/materi-penalaran-umum-utbk" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Materi & Panduan Zenius</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.ruangguru.com/blog/materi-penalaran-umum-utbk" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Bedah Soal Ruangguru</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card: Pengetahuan & Pemahaman Umum -->
+                <div
+                    class="bg-brand-card border border-brand-border rounded-xl p-5 hover:border-brand-red/50 transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span
+                                class="text-xs font-semibold uppercase tracking-wider text-red-400 bg-red-400/10 px-2 py-0.5 rounded">TPS</span>
+                            <span class="text-xs text-slate-400">Bahasa & Makna</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Pengetahuan & Pemahaman Umum (PPU)</h3>
+                        <p class="text-sm text-slate-400 mb-4">Pemahaman ide pokok, sinonim, antonim, bentukan kata, dan
+                            konjungsi.</p>
+                    </div>
+                    <div class="space-y-2 border-t border-brand-border/60 pt-3">
+                        <a href="https://www.zenius.net/blog/materi-ppu-utbk" target="_blank" rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Rangkuman PPU Zenius</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <a href="https://pahamify.com/blog/persiapan-utbk/materi-ppu-utbk/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Panduan Bahasa Pahamify</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card: Kemampuan Memahami Bacaan & Menulis -->
+                <div
+                    class="bg-brand-card border border-brand-border rounded-xl p-5 hover:border-brand-red/50 transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span
+                                class="text-xs font-semibold uppercase tracking-wider text-red-400 bg-red-400/10 px-2 py-0.5 rounded">TPS</span>
+                            <span class="text-xs text-slate-400">PUEBI & Tata Bahasa</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">PBM (Pemahaman Bacaan & Menulis)</h3>
+                        <p class="text-sm text-slate-400 mb-4">Ejaan bahasa Indonesia, kerapian paragraf, serta
+                            efektivitas kalimat.</p>
+                    </div>
+                    <div class="space-y-2 border-t border-brand-border/60 pt-3">
+                        <a href="https://ejaan.kemdikbud.go.id/" target="_blank" rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Pedoman EYD V Resmi</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.ruangguru.com/blog/materi-pbm-utbk" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Aturan Tulis Ruangguru</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card: Pengetahuan Kuantitatif -->
+                <div
+                    class="bg-brand-card border border-brand-border rounded-xl p-5 hover:border-brand-red/50 transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span
+                                class="text-xs font-semibold uppercase tracking-wider text-red-400 bg-red-400/10 px-2 py-0.5 rounded">TPS</span>
+                            <span class="text-xs text-slate-400">Matematika Dasar</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Pengetahuan Kuantitatif (PK)</h3>
+                        <p class="text-sm text-slate-400 mb-4">Aljabar, aritmatika, geometri dasar, fungsi, dan peluang.
+                        </p>
+                    </div>
+                    <div class="space-y-2 border-t border-brand-border/60 pt-3">
+                        <a href="https://www.zenius.net/blog/pengetahuan-kuantitatif-utbk" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Konsep Kuantitatif Zenius</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <a href="https://id.khanacademy.org/math" target="_blank" rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Latihan Aljabar Khan Academy</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 2: Literasi Bahasa & Penalaran Matematika -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold text-slate-200 mb-4 pb-2 border-b border-brand-border flex items-center gap-2">
+                <span class="text-brand-red">#</span> Literasi & Penalaran Matematika
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <!-- Card: Literasi Bahasa Indonesia -->
+                <div
+                    class="bg-brand-card border border-brand-border rounded-xl p-5 hover:border-brand-red/50 transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span
+                                class="text-xs font-semibold uppercase tracking-wider text-blue-400 bg-blue-400/10 px-2 py-0.5 rounded">Literasi</span>
+                            <span class="text-xs text-slate-400">Teks Kompleks</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Literasi Bahasa Indonesia</h3>
+                        <p class="text-sm text-slate-400 mb-4">Evaluasi teks sastra, teks informasi, narasi, dan
+                            analisis sintesis tulisan.</p>
+                    </div>
+                    <div class="space-y-2 border-t border-brand-border/60 pt-3">
+                        <a href="https://www.zenius.net/blog/literasi-bahasa-indonesia-utbk" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Trik Analisis Teks Zenius</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <a href="https://pusprep.kemdikbud.go.id/" target="_blank" rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Contoh Soal Kemendikbud</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card: Literasi Bahasa Inggris -->
+                <div
+                    class="bg-brand-card border border-brand-border rounded-xl p-5 hover:border-brand-red/50 transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span
+                                class="text-xs font-semibold uppercase tracking-wider text-blue-400 bg-blue-400/10 px-2 py-0.5 rounded">Literasi</span>
+                            <span class="text-xs text-slate-400">English Reading</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Literasi Bahasa Inggris</h3>
+                        <p class="text-sm text-slate-400 mb-4">Main idea, author's attitude, inference, dan reading
+                            comprehension.</p>
+                    </div>
+                    <div class="space-y-2 border-t border-brand-border/60 pt-3">
+                        <a href="https://www.zenius.net/blog/literasi-bahasa-inggris-utbk" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Strategi Reading Zenius</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <a href="https://readtheory.org/" target="_blank" rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Latihan Reading ReadTheory</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card: Penalaran Matematika -->
+                <div
+                    class="bg-brand-card border border-brand-border rounded-xl p-5 hover:border-brand-red/50 transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span
+                                class="text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">Matematika</span>
+                            <span class="text-xs text-slate-400">Soal Cerita / Kontekstual</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Penalaran Matematika</h3>
+                        <p class="text-sm text-slate-400 mb-4">Penerapan konsep matematika pada kasus sehari-hari (data,
+                            statistik, rasio).</p>
+                    </div>
+                    <div class="space-y-2 border-t border-brand-border/60 pt-3">
+                        <a href="https://www.zenius.net/blog/penalaran-matematika-utbk" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Konsep PM UTBK Zenius</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <a href="https://id.khanacademy.org/math/algebra" target="_blank" rel="noopener noreferrer"
+                            class="flex justify-between items-center text-sm text-slate-300 hover:text-brand-red transition">
+                            <span>Soal Cerita Khan Academy</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 3: Platform Tryout & Simulasi -->
+        <section>
+            <h2 class="text-xl font-bold text-slate-200 mb-4 pb-2 border-b border-brand-border flex items-center gap-2">
+                <span class="text-brand-red">#</span> Simulasi Resmi & Tryout Gratis
+            </h2>
+            <div
+                class="bg-brand-card border border-brand-border rounded-xl p-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <h3 class="text-lg font-semibold text-white">Simulasi Resmi SNPMB BPPP</h3>
+                    <p class="text-sm text-slate-400">Coba langsung antarmuka tes resmi dari Kementerian Pendidikan
+                        untuk membiasakan diri.</p>
+                </div>
+                <a href="https://simulasi-sukses.bppp.kemdikbud.go.id/" target="_blank" rel="noopener noreferrer"
+                    class="px-5 py-2.5 bg-brand-red hover:bg-red-600 text-white font-medium text-sm rounded-lg transition whitespace-nowrap">
+                    Coba Simulasi Resmi
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer dengan Tombol Kembali Tambahan -->
+    <footer
+        class="mt-16 text-center text-xs text-slate-500 border-t border-brand-border/40 pt-6 flex flex-col items-center gap-3">
+        <a href="index.html"
+            class="inline-flex items-center gap-2 text-slate-400 hover:text-white transition text-xs font-medium">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                </path>
+            </svg>
+            Kembali ke Halaman Awal (`index.html`)
+        </a>
+        <p>Portal Link Belajar SNBT UTBK — Disusun untuk navigasi belajar cepat.</p>
+    </footer>
+
+</body>
+
+</html>
